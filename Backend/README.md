@@ -4,6 +4,9 @@ Advanced RAG-based legal recommendation system for Sri Lankan Labour and Employm
 
 ## Architecture Overview
 
+![Architecture Diagram](assets/architecture.png)
+
+
 ```
 User Query → Backend (FastAPI) → Gemini Embedding → FAISS Search → Context Retrieval
                                                                           ↓
@@ -46,7 +49,7 @@ alembic upgrade head
 Ensure PostgreSQL is running and the database exists:
 ```bash
 # Default connection
-postgresql://postgres:pavi1234@localhost:5432/legal_arise_new
+postgresql://postgres:password@localhost:5432/legal_ai
 ```
 
 ### 2. Start Redis (Optional — for rate limiting)

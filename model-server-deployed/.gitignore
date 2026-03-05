@@ -1,0 +1,53 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Modal credentials / secrets ───────────────────────────────────────────────
+.modal/
+.env
+.env.*
+!.env.example
+
+# ── Uploaded model artefacts (large binary files) ─────────────────────────────
+model-server/*.gguf
+model-server/*.bin
+model-server/*.pt
+model-server/*.pth
+model-server/models/
+
+# ── Test result exports ────────────────────────────────────────────────────────
+pipeline_test_results_*.json
+test_results_*.json
+
+# ── Archives ───────────────────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+model-server.zip
+
+# ── OS artefacts ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE / editor ───────────────────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*~
+
+# ── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Misc ───────────────────────────────────────────────────────────────────────
+*.bak
+*.tmp

@@ -1,0 +1,48 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Model weights (large binary files — store separately) ─────────────────────
+models/*.gguf
+models/*.bin
+models/*.pt
+models/*.pth
+models/*.safetensors
+models/*.onnx
+
+# ── Fine-tune data & notebooks (may contain sensitive training data) ──────────
+# ignore any local training dataset JSON files (e.g. dataset.json)
+dataset.json
+
+# ── Ollama internal cache ──────────────────────────────────────────────────────
+.ollama/
+
+# ── OS artefacts ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE / editor ───────────────────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*~
+
+# ── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Misc ───────────────────────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.bak
+*.tmp

@@ -1,0 +1,107 @@
+# ── Environment & secrets ──────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+.virtualenv/
+
+# ── Distribution / packaging ───────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+MANIFEST
+
+# ── Testing & coverage ─────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.coveragerc
+nosetests.xml
+test-results/
+
+# ── Type checking ──────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
+
+# ── Linting / formatting ───────────────────────────────────────────────────────
+.ruff_cache/
+
+# ── Jupyter ────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── FAISS / ML model artefacts ─────────────────────────────────────────────────
+models/faiss_index/
+models/faiss_partitions/
+*.faiss
+*.index
+*.pkl
+*.bin
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.safetensors
+
+# ── Uploaded / generated files ─────────────────────────────────────────────────
+uploads/
+backend.zip
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# ── Pipeline test result exports ───────────────────────────────────────────────
+pipeline_test_results_*.json
+
+# ── Alembic ────────────────────────────────────────────────────────────────────
+# Keep migrations under version control; ignore only generated cache
+alembic/__pycache__/
+alembic/versions/__pycache__/
+
+# ── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+*.log.*
+logs/
+
+# ── OS artefacts ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── IDE / editor ───────────────────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# ── Misc ───────────────────────────────────────────────────────────────────────
+.cache/
+*.bak
+*.tmp
+*.orig
+
+scripts/

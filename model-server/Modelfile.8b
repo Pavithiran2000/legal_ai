@@ -1,0 +1,15 @@
+FROM F:/Arise/New-backend/model-server/models/qwen3_8b.gguf
+
+PARAMETER temperature 0.1
+PARAMETER top_p 0.95
+PARAMETER num_ctx 4096
+PARAMETER stop <|im_end|>
+PARAMETER stop <|endoftext|>
+
+TEMPLATE """{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""

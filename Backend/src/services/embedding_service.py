@@ -23,8 +23,20 @@ class EmbeddingService:
 
     async def initialize(self):
         """Initialize embedding backends."""
-        # Try Gemini first
-        if settings.gemini_api_key:
+        # Use sentence-transformers as primary when embedding_model is "sentence-transformers"
+        if settings.embedding_model == "sentence-transformers":
+            try:
+                from sentence_transformers import SentenceTransformer
+                self._st_model = SentenceTransformer(settings.st_embedding_model)
+                self._dimension = settings.st_embedding_dimension
+                self._active_backend = "sentence-transformers"
+                logger.info(f"Sentence-transformers embedding initialized: {settings.st_embedding_model} (dim={self._dimension})")
+                return
+            except Exception as e:
+                logger.warning(f"Sentence-transformers init failed: {e}")
+
+        # Try Gemini if a Gemini model is configured
+        if settings.gemini_api_key and settings.embedding_model != "sentence-transformers":
             try:
                 import google.generativeai as genai
                 genai.configure(api_key=settings.gemini_api_key)
@@ -43,17 +55,16 @@ class EmbeddingService:
             except Exception as e:
                 logger.warning(f"Gemini embedding init failed: {e}")
 
-        # Fallback to sentence-transformers
-        if settings.use_sentence_transformers_backup:
+            # Fallback to sentence-transformers if Gemini fails
             try:
                 from sentence_transformers import SentenceTransformer
                 self._st_model = SentenceTransformer(settings.st_embedding_model)
                 self._dimension = settings.st_embedding_dimension
                 self._active_backend = "sentence-transformers"
-                logger.info(f"Sentence-transformers embedding initialized (dim={self._dimension})")
+                logger.info(f"Falling back to sentence-transformers: {settings.st_embedding_model} (dim={self._dimension})")
                 return
             except Exception as e:
-                logger.warning(f"Sentence-transformers init failed: {e}")
+                logger.warning(f"Sentence-transformers fallback init failed: {e}")
 
         logger.error("No embedding backend available!")
 

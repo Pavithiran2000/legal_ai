@@ -33,16 +33,16 @@ class Settings(BaseSettings):
     model_temperature: float = Field(default=0.1)
     model_max_tokens: int = Field(default=6000)
 
-    # Embedding - Gemini
+    # Embedding - Gemini (disabled)
     gemini_api_key: str = Field(default="")
-    embedding_model: str = Field(default="models/gemini-embedding-001")
-    embedding_dimension: int = Field(default=3072)
+    embedding_model: str = Field(default="sentence-transformers")
+    embedding_dimension: int = Field(default=1024)
     embedding_batch_size: int = Field(default=100)
 
-    # Embedding - Sentence Transformers backup
-    use_sentence_transformers_backup: bool = Field(default=True)
-    st_embedding_model: str = Field(default="all-MiniLM-L6-v2")
-    st_embedding_dimension: int = Field(default=384)
+    # Embedding - Sentence Transformers (primary)
+    use_sentence_transformers_backup: bool = Field(default=False)
+    st_embedding_model: str = Field(default="BAAI/bge-large-en-v1.5")
+    st_embedding_dimension: int = Field(default=1024)
 
     # FAISS
     faiss_index_dir: str = Field(default="./models/faiss_index")
